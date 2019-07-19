@@ -48,24 +48,28 @@
 #include <string>
 #include <vector>
 
-/* GLUI_API shared library export/import declarations. */
-#if defined(_WIN32)
-# ifdef GLUI_BUILDING_LIB
-#  ifdef GLUI_Context *DLL
-#   define GLUI_API __declspec(dllexport)
-#  else
-#   define GLUI_API
-#  endif
-# else
-#  ifdef GLUI_Context *DLL
-#   define GLUI_API __declspec(dllimport)
-#  else
-#   define GLUI_API
-#  endif
-# endif
+#if defined(_MSC_VER)
+#  define GLUI_DLL_EXPORT __declspec(dllexport)
+#  define GLUI_DLL_IMPORT __declspec(dllimport)
+#elif defined(__clang__) || defined(__GNUC__)
+#  define GLUI_DLL_EXPORT __attribute__((visibility("default")))
+#  define GLUI_DLL_IMPORT __attribute__((visibility("default")))
 #else
-#define GLUI_API
+#  define GLUI_DLL_EXPORT
+#  define GLUI_DLL_IMPORT
 #endif
+
+#if defined(GLUI_DLL_INTERFACE)
+#  ifdef glui_EXPORTS
+#    define GLUI_INTERFACE GLUI_DLL_EXPORT
+#  else
+#    define GLUI_INTERFACE GLUI_DLL_IMPORT
+#  endif
+#else
+#  define GLUI_INTERFACE /*static lib*/
+#endif
+
+#define GLUI_API GLUI_INTERFACE
 
 namespace glui {
 

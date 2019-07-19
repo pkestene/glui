@@ -38,6 +38,7 @@
 #include "glui_internal_control.h"
 #include <iostream>
 #include <stdio.h>
+#include <algorithm>
 
 #ifndef PRINT
 # define PRINT(var) std::cout << #var << "=" << var << std::endl;
@@ -191,12 +192,12 @@ namespace glui {
     draw_emboss_box(outer_border_width,w-1-outer_border_width,
                     outer_border_width,h-1-outer_border_width-1*GLUI_STATICTEXT_SIZE);
 
-    glTranslatef(outer_border_width+inner_border_width,
-                 outer_border_width+inner_border_width,
-                 0);
-    glScalef((w-2*inner_border_width-2*outer_border_width-2),
-             (h-2*inner_border_width-2*outer_border_width-2-GLUI_STATICTEXT_SIZE-1),
-             1);
+    glTranslatef((float)outer_border_width+inner_border_width,
+                 (float)outer_border_width+inner_border_width,
+                 0.f);
+    glScalef(float(w-2*inner_border_width-2*outer_border_width-2),
+             float(h-2*inner_border_width-2*outer_border_width-2-GLUI_STATICTEXT_SIZE-1),
+             1.f);
     glTranslatef(0.f,1.f,0.f);
     glScalef(1.f,-1.f,1.f);
     

@@ -207,14 +207,14 @@ namespace glui {
 
     if (format & GLUI_TREEPANEL_ALTERNATE_COLOR) {
       switch (level%8) {
-      case (7): temp->set_color(.5,.5,.5); break;
-      case (6): temp->set_color(.3,.5,.5); break;
-      case (5): temp->set_color(.5,.3,.5); break;
-      case (4): temp->set_color(.3,.3,.5); break;
-      case (3): temp->set_color(.5,.5,.3); break;
-      case (2): temp->set_color(.3,.5,.3); break;
-      case (1): temp->set_color(.5,.3,.3); break;
-      default: temp->set_color(.3,.3,.3);
+      case (7): temp->set_color(.5f,.5f,.5f); break;
+      case (6): temp->set_color(.3f,.5f,.5f); break;
+      case (5): temp->set_color(.5f,.3f,.5f); break;
+      case (4): temp->set_color(.3f,.3f,.5f); break;
+      case (3): temp->set_color(.5f,.5f,.3f); break;
+      case (2): temp->set_color(.3f,.5f,.3f); break;
+      case (1): temp->set_color(.5f,.3f,.3f); break;
+      default:  temp->set_color(.3f,.3f,.3f);
       }
     } else {
       temp->set_color(red,green,blue);

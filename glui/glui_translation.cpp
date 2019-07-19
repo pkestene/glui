@@ -389,15 +389,15 @@ namespace glui {
     }
     else if ( orientation == 0 ) {
       c_off = 0;
-      glRotatef( 180.0, 0.0, 0.0, 1.0 );
+      glRotatef( 180.0f, 0.0f, 0.0f, 1.0f);
     }
     else if ( orientation == 1 ) {
       c_off = 2;
-      glRotatef( 90.0, 0.0, 0.0, 1.0 );
+      glRotatef( 90.0f, 0.0f, 0.0f, 1.0f);
     }
     else if ( orientation == 3 ) {
       c_off = 6;
-      glRotatef( -90.0, 0.0, 0.0, 1.0 );
+      glRotatef( -90.0f, 0.0f, 0.0f, 1.0f);
     }
 
     if ( trans_type == GLUI_TRANSLATION_Z )
@@ -410,18 +410,18 @@ namespace glui {
 
     if ( trans_type == GLUI_TRANSLATION_Z ) {
       if ( orientation == 0 ) {
-        y1 += 2.0;
-        y2 += 0.0;
+        y1 += 2.0f;
+        y2 += 0.0f;
 
-        x1b -= 2.0;
-        x2  -= 2.0;
-        x1a += 2.0;
+        x1b -= 2.0f;
+        x2  -= 2.0f;
+        x1a += 2.0f;
       }
       else if ( orientation == 2 ) {
-        y1 -= 6.0;
-        x1a += 2.0;
-        x1b += 4.0;
-        x2  += 6.0;
+        y1 -= 6.0f;
+        x1a += 2.0f;
+        x1b += 4.0f;
+        x2  += 6.0f;
       }
     }
 
@@ -429,10 +429,10 @@ namespace glui {
     if ( NOT filled ) {  /*** Means button is up - control is not clicked ***/
       /*glColor3f( .8, .8, .8 );              */
       set_to_bkgd_color();
-      glColor3f( bkgd[0]+.07, bkgd[1]+.07, bkgd[2]+.07 );
+      glColor3f( bkgd[0]+.07f, bkgd[1]+.07f, bkgd[2]+.07f );
     }
     else {               /*** Button is down on control ***/
-      glColor3f( .6, .6, .6 );
+      glColor3f( .6f, .6f, .6f );
       c_off += 4;  /* Indents the shadows - goes from a raised look to embossed */
     }
 

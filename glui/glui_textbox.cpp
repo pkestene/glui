@@ -328,7 +328,7 @@ namespace glui {
       return;  /* Don't select everything if activated with mouse */
 
     sel_start    = 0;
-    sel_end      = text.length();
+    sel_end      = (int)text.length();
     insertion_pt = 0;
   }
 
@@ -395,14 +395,14 @@ namespace glui {
 
     /* Draw Background if enabled*/
     if (enabled) {
-      glColor3f( 1., 1., 1. );
+      glColor3f( 1.f, 1.f, 1.f );
       glDisable( GL_CULL_FACE );
       glBegin( GL_QUADS );
       glVertex2i( 2, 2 );     glVertex2i( w-2, 2 );
       glVertex2i( w-2, h-2 );               glVertex2i(2, h-2 );
       glEnd();
     } else {
-      glColor3f( .8, .8, .8 );
+      glColor3f( .8f, .8f, .8f );
       glDisable( GL_CULL_FACE );
       glBegin( GL_QUADS );
       glVertex2i( 2, 2 );     glVertex2i( w-2, 2 );
@@ -413,7 +413,7 @@ namespace glui {
     /* Begin Drawing Lines of Text */
     substring_start = 0;
     substring_end = 0;
-    text_length = text.length()-1;
+    text_length = (int)text.length()-1;
 
     /* Figure out how wide the box is */
     box_width = get_box_width();
@@ -458,7 +458,7 @@ namespace glui {
     if (scrollbar) {
       scrollbar->set_int_limits(MAX(0,num_lines/*-1*/-visible_lines),0);
       glPushMatrix();
-      glTranslatef(scrollbar->x_abs-x_abs, scrollbar->y_abs-y_abs,0.0);
+      glTranslatef((float)scrollbar->x_abs-x_abs, (float)scrollbar->y_abs-y_abs,0.0f);
       scrollbar->draw_scroll();
       glPopMatrix();
     }
@@ -471,7 +471,7 @@ namespace glui {
   int    GLUI_TextBox::update_substring_bounds( void )
   {
     int box_width;
-    int text_len = text.length();
+    int text_len = (int)text.length();
     int old_start, old_end;
 
     old_start = substring_start;
@@ -643,7 +643,7 @@ namespace glui {
     insert_x = x;
     insert_y = y;
 
-    int text_length = text.length()-1;
+    int text_length = (int)text.length()-1;
     int box_width = get_box_width();
 
     int sol = 0;
@@ -754,7 +754,7 @@ namespace glui {
 
     sol = 0;
     eol = 0;
-    text_length = text.length()-1;
+    text_length = (int)text.length()-1;
 
     //while (eol < text_length && text[eol] != '\n'
     //       && substring_width(sol, eol + 1) < box_width )
@@ -904,7 +904,7 @@ namespace glui {
       // update keygoal_x!
     }
     else if ( key == GLUT_KEY_END ) {
-      insertion_pt = text.length();
+      insertion_pt = (int)text.length();
       // update keygoal_x!
     }
 
@@ -915,11 +915,11 @@ namespace glui {
       sel_start = sel_end = insertion_pt;
 
 
-    CLAMP( insertion_pt, 0, text.length()); /* Make sure insertion_pt
+    CLAMP( insertion_pt, 0, (int)text.length()); /* Make sure insertion_pt
                                                is in bounds */
-    CLAMP( sel_start, 0, text.length()); /* Make sure insertion_pt
+    CLAMP( sel_start, 0, (int)text.length()); /* Make sure insertion_pt
                                             is in bounds */
-    CLAMP( sel_end, 0, text.length()); /* Make sure insertion_pt
+    CLAMP( sel_end, 0, (int)text.length()); /* Make sure insertion_pt
                                           is in bounds */
 
     /******** Now redraw text ***********/
@@ -941,7 +941,7 @@ namespace glui {
   {
     int    i, j;
     char    breaks[] = " \n\t:-.,";
-    int     num_break_chars = (int)strlen(breaks), text_len = text.length();
+    int     num_break_chars = (int)strlen(breaks), text_len = (int)text.length();
     int     new_pt;
 
     /** If we're moving left, we have to start two back, in case we're either
@@ -1003,7 +1003,7 @@ namespace glui {
     text = new_text;
 
     substring_start = 0;
-    substring_end   = text.length() - 1;
+    substring_end   = (int)text.length() - 1;
     insertion_pt    = -1;
     sel_start       = 0;
     sel_end         = 0;
@@ -1025,10 +1025,10 @@ namespace glui {
   void   GLUI_TextBox::dump( FILE *out, const char *name )
   {
     fprintf( out,
-             "%s (edittext@%p):   line:%d ins_pt:%d  subs:%d/%d  sel:%d/%d   len:%ld\n",
+             "%s (edittext@%p):   line:%d ins_pt:%d  subs:%d/%d  sel:%d/%d   len:%d\n",
              name, this, curr_line,
              insertion_pt, substring_start, substring_end, sel_start, sel_end,
-             text.length());
+             (int)text.length());
   }
 
 

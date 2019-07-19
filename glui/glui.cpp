@@ -30,7 +30,6 @@
 
 *****************************************************************************/
 #include "glui_internal_control.h"
-#include <sys/times.h>
 
 namespace glui {
 
@@ -611,10 +610,10 @@ namespace glui {
 
     /*** Rotate image so y increases downward.
          In normal OpenGL, y increases upward. ***/
-    glTranslatef((float) win_w/2.0, (float) win_h/2.0, 0.0);
-    glRotatef(180.0, 0.0, 1.0, 0.0);
-    glRotatef(180.0, 0.0, 0.0, 1.0);
-    glTranslatef((float) -win_w/2.0, (float) -win_h/2.0, 0.0);
+    glTranslatef((float) win_w/2.0f, (float) win_h/2.0f, 0.0f);
+    glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+    glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+    glTranslatef((float) -win_w/2.0f, (float) -win_h/2.0f, 0.0f);
 
     // Recursively draw the main panel
     //  main_panel->draw_bkgd_box(0, 0, win_w, win_h);
@@ -1934,10 +1933,10 @@ namespace glui {
     glLoadIdentity();
 
     /*** Rotate image so y increases upwards, contrary to OpenGL axes ***/
-    glTranslatef((float) win_w/2.0, (float) win_h/2.0, 0.0);
-    glRotatef(180.0, 0.0, 1.0, 0.0);
-    glRotatef(180.0, 0.0, 0.0, 1.0);
-    glTranslatef((float) -win_w/2.0, (float) -win_h/2.0, 0.0);
+    glTranslatef((float) win_w/2.0f, (float) win_h/2.0f, 0.0f);
+    glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+    glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+    glTranslatef((float) -win_w/2.0f, (float) -win_h/2.0f, 0.0f);
   }
 
 
