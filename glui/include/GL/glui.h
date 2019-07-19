@@ -59,15 +59,15 @@
 #  define GLUI_DLL_IMPORT
 #endif
 
-#if defined(GLUI_DLL_INTERFACE)
+//#if defined(GLUI_DLL_INTERFACE)
 #  ifdef glui_EXPORTS
 #    define GLUI_INTERFACE GLUI_DLL_EXPORT
 #  else
 #    define GLUI_INTERFACE GLUI_DLL_IMPORT
 #  endif
-#else
-#  define GLUI_INTERFACE /*static lib*/
-#endif
+//#else
+//#  define GLUI_INTERFACE /*static lib*/
+//#endif
 
 #define GLUI_API GLUI_INTERFACE
 
