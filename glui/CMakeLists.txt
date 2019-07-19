@@ -1,4 +1,35 @@
 SET(GLUI_SRCS
+ # header files, so visual studio will show those in the solution, too:
+ include/GL/glui/Button.h
+include/GL/glui/CheckBox.h
+include/GL/glui/Column.h
+include/GL/glui/CommandLine.h
+include/GL/glui/Context.h
+include/GL/glui/Control.h
+include/GL/glui/EditText.h
+include/GL/glui/FileBrowser.h
+include/GL/glui/GlutWindow.h
+include/GL/glui/List.h
+include/GL/glui/ListBox.h
+include/GL/glui/Main.h
+include/GL/glui/MouseInteraction.h
+include/GL/glui/Panel.h
+include/GL/glui/RadioButton.h
+include/GL/glui/RadioGroup.h
+include/GL/glui/RollOut.h
+include/GL/glui/Rotation.h
+include/GL/glui/ScrollBar.h
+include/GL/glui/Separator.h
+include/GL/glui/Spinner.h
+include/GL/glui/StaticText.h
+include/GL/glui/TextBox.h
+include/GL/glui/TransferFunction.h
+include/GL/glui/Translation.h
+include/GL/glui/Tree.h
+include/GL/glui/TreePanel.h
+include/GL/glui.h
+
+# source files, to build the lib from
  algebra3.cpp
  arcball.cpp
  glui_add_controls.cpp
