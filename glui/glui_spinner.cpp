@@ -150,9 +150,9 @@ namespace glui {
          go ahead and increment by one for int spinners ***/
     if ( data_type == GLUI_SPINNER_INT ) {
       if ( state == GLUI_SPINNER_STATE_UP )
-        edittext->set_float_val( edittext->float_val + 1.0 );
+        edittext->set_float_val( edittext->float_val + 1.0f );
       else if ( state == GLUI_SPINNER_STATE_DOWN )
-        edittext->set_float_val( edittext->float_val - .9 );
+        edittext->set_float_val( edittext->float_val - .9f );
     }
 
     do_click();

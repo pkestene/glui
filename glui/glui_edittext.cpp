@@ -467,7 +467,7 @@ namespace glui {
       if ( text.length() == 0 ) /* zero-length string - make it "0.0" */
         text = "0.0";
 
-      new_float_val = atof( text.c_str() );
+      new_float_val = std::stof(text);
 
       set_float_val( new_float_val );
     }

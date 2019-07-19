@@ -103,7 +103,7 @@ namespace glui {
     unsigned long int ms;
     timeb time;
     ftime(&time);
-    ms = time.millitm + (time.time)*1000;
+    ms = (unsigned long)(time.millitm)+ (unsigned long)((time.time)*1000);
 
     tmp_line = find_line( local_x-x_abs, local_y-y_abs-5 );
     if ( tmp_line == -1 ) {

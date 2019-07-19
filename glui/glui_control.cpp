@@ -213,8 +213,8 @@ namespace glui {
     glMatrixMode( GL_MODELVIEW );
     glPushMatrix();
 
-    glTranslatef( (float) this->x_abs + .5,
-                  (float) this->y_abs + .5,
+    glTranslatef( (float) this->x_abs + .5f,
+                  (float) this->y_abs + .5f,
                   0.0 );
 
     if ( NOT _glui_draw_border_only ) {

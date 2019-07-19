@@ -365,12 +365,12 @@ namespace glui {
     glTranslatef(-(x+offset),-(y+offset),0);
 
     if (!enabled) { // once more!
-      glTranslatef(x,y,0.f);
+      glTranslatef((float)x, (float)y,0.f);
       glColor3ubv(gray);
       glBegin(GL_TRIANGLES);
       glVertex2fv(tri); glVertex2fv(tri+2), glVertex2fv(tri+4);
       glEnd();
-      glTranslatef(-x,-y,0.f);
+      glTranslatef(-(float)x,-(float)y,0.f);
     }
   }
 
@@ -394,19 +394,19 @@ namespace glui {
     glTexImage2D( GL_TEXTURE_2D, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_UNSIGNED_BYTE,
                   scroll_bg);
 
-    float y0 = horizontal? 0 : GLUI_SCROLL_ARROW_HEIGHT;
-    float y1 = horizontal? h : h-GLUI_SCROLL_ARROW_HEIGHT;
-    float x0 = horizontal? GLUI_SCROLL_ARROW_WIDTH   : 0;
-    float x1 = horizontal? w-GLUI_SCROLL_ARROW_WIDTH : w;
-    x0-=0.5; y0+=0.5;
-    x1-=0.5; y1+=0.5;
+    float y0 = float(horizontal? 0 : GLUI_SCROLL_ARROW_HEIGHT);
+    float y1 = float(horizontal? h : h-GLUI_SCROLL_ARROW_HEIGHT);
+    float x0 = float(horizontal? GLUI_SCROLL_ARROW_WIDTH   : 0);
+    float x1 = float(horizontal? w-GLUI_SCROLL_ARROW_WIDTH : w);
+    x0-=0.5f; y0+=0.5f;
+    x1-=0.5f; y1+=0.5f;
     float dy = y1-y0;
     float dx = x1-x0;
     glBegin(GL_QUADS);
-    glTexCoord2f(0,     0);        glVertex2f(x0,y0);
-    glTexCoord2f(dx*0.5f,0);       glVertex2f(x1,y0);
+    glTexCoord2f(0.f,    0.f);     glVertex2f(x0,y0);
+    glTexCoord2f(dx*0.5f,0.f);     glVertex2f(x1,y0);
     glTexCoord2f(dx*0.5f,dy*0.5f); glVertex2f(x1,y1);
-    glTexCoord2f(0,      dy*0.5f); glVertex2f(x0,y1);
+    glTexCoord2f(0.f,    dy*0.5f); glVertex2f(x0,y1);
     glEnd();
     glDisable(GL_TEXTURE_2D);
 
@@ -611,7 +611,7 @@ namespace glui {
 
     double frame_time=GLUI_Time()-last_update_time;
     double frame_limit=velocity_limit*frame_time;
-    if (incr>frame_limit) incr=frame_limit; /* don't scroll faster than limit */
+    if (incr>frame_limit) incr=(float)frame_limit; /* don't scroll faster than limit */
     last_update_time=GLUI_Time();
 
     float new_val = float_val;
@@ -773,7 +773,7 @@ namespace glui {
     if (new_val < lo)
       new_val = lo;
     last_int_val = int_val;
-    float_val = int_val = new_val;
+    float_val = float(int_val = new_val);
 
     redraw();
 
@@ -812,8 +812,8 @@ namespace glui {
     int hi = MAX(low,high);
     if (int_val<lo) set_int_val(lo);
     if (int_val>hi) set_int_val(hi);
-    float_min = low;
-    float_max = high;
+    float_min = (float)low;
+    float_max = (float)high;
   }
 
 
@@ -821,7 +821,7 @@ namespace glui {
 
   void    GLUI_Scrollbar::reset_growth( void )
   {
-    growth = fabs(float_max - float_min) / float(GLUI_SCROLL_GROWTH_STEPS);
+    growth = fabsf(float_max - float_min) / float(GLUI_SCROLL_GROWTH_STEPS);
     if (data_type == GLUI_SCROLL_INT && growth<1) growth=1;
   }
 

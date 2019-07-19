@@ -92,8 +92,9 @@ namespace glui {
         button->translate_to_origin();
       }
       else {
-        glTranslatef(button->x_abs-x_abs,
-                     button->y_abs-y_abs,0.0);
+        glTranslatef(button->x_abs - (float)x_abs,
+                     button->y_abs - (float)y_abs,
+			0.0f);
       }
 
       if ( button->int_val )
