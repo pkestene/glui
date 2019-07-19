@@ -118,7 +118,7 @@ namespace glui {
 
     /*** Draw the checkered box ***/
     /*glDisable( GL_TEXTURE_2D );              */
-    draw_ball(1.35); // 1.96 );
+    draw_ball(1.35f); // 1.96 );
 
     glPopMatrix();
 
@@ -134,15 +134,15 @@ namespace glui {
   void    GLUI_Rotation::iaction_draw_active_area_ortho( void )
   {
     float radius;
-    radius = (float)(h-22)/2.0;  /*MIN((float)w/2.0, (float)h/2.0);  */
+    radius = (float)(h-22)/2.0f;  /*MIN((float)w/2.0, (float)h/2.0);  */
 
     /********* Draw emboss circles around arcball control *********/
     int k;
     glLineWidth( 1.0 );
     glBegin( GL_LINE_LOOP);
     for( k=0; k<60; k++ ) {
-      float phi = 2*M_PI*(float)k/60.0;
-      vec2 p( cos(phi) * (2.0 + radius), sin(phi) * (2.0 + radius));
+      float phi = float(2*M_PI)*(float)k/60.0f;
+      vec2 p( cosf(phi) * (2.0f + radius), sinf(phi) * (2.0f + radius));
       if ( p[1] < -p[0] ) 			glColor3ub( 128,128,128 );
       else					glColor3ub( 255,255,255 );
       glVertex2fv((float*)&p[0]);
@@ -151,8 +151,8 @@ namespace glui {
 
     glBegin( GL_LINE_LOOP);
     for( k=0; k<60; k++ ) {
-      float phi = 2*M_PI*(float)k/60.0;
-      vec2 p( cos(phi) * (1.0 + radius), sin(phi) * (1.0 + radius));
+      float phi = float(2*M_PI)*(float)k/60.0f;
+      vec2 p( cosf(phi) * (1.0f + radius), sinf(phi) * (1.0f + radius));
       if ( enabled ) {
         if ( p[1] < -p[0] ) 			glColor3ub( 0,0,0);
         else					glColor3ub( 192,192,192);
@@ -307,8 +307,8 @@ namespace glui {
       gluQuadricTexture(quadObj, true );
       glMatrixMode(GL_TEXTURE);
       glLoadIdentity();
-      double checkerTiles=2.0; /* black-white checker tiles across whole sphere */
-      glScalef(checkerTiles,checkerTiles,1.0);
+      float checkerTiles=2.0f; /* black-white checker tiles across whole sphere */
+      glScalef(checkerTiles,checkerTiles,1.0f);
       gluSphere(quadObj, radius, 32, 16);
       glLoadIdentity();
       glMatrixMode(GL_MODELVIEW);
@@ -404,12 +404,12 @@ namespace glui {
 
   void   GLUI_Rotation::set_spin( float damp_factor )
   {
-    if ( damp_factor == 0.0 )
+    if ( damp_factor == 0.0f )
       can_spin = false;
     else
       can_spin = true;
 
-    ball->set_damping( 1.0 - damp_factor );
+    ball->set_damping( 1.0f - damp_factor );
 
     this->damping = damp_factor;
   }

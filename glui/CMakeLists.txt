@@ -75,6 +75,7 @@ include_directories("${GLUT_INCLUDE_DIR}")
 add_library(glui SHARED ${GLUI_SRCS})
 target_link_libraries(glui ${GLUT_LIBRARIES} ${OPENGL_LIBRARIES})
 set_property(TARGET glui PROPERTY POSITION_INDEPENDENT_CODE 1)
+target_compile_definitions(glui PUBLIC glui_DLL_INTERFACE)
 
 add_library(glui_static STATIC ${GLUI_SRCS})
 target_link_libraries(glui_static ${GLUT_LIBRARIES})

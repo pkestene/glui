@@ -159,14 +159,14 @@ namespace glui {
     glMatrixMode( GL_MODELVIEW );
     glPushMatrix();
     glLoadIdentity();
-    glTranslatef( (float) win_w/2.0, (float) win_h/2.0, 0.0 );
-    glRotatef( 180.0, 0.0, 1.0, 0.0 );
-    glRotatef( 180.0, 0.0, 0.0, 1.0 );
-    glTranslatef( (float) -win_w/2.0, (float) -win_h/2.0, 0.0 );
+    glTranslatef( (float) win_w/2.0f, (float) win_h/2.0f, 0.0f);
+    glRotatef( 180.0f, 0.0f, 1.0f, 0.0f );
+    glRotatef( 180.0f, 0.0f, 0.0f, 1.0f );
+    glTranslatef( (float) -win_w/2.0f, (float) -win_h/2.0f, 0.0f );
 
-    glTranslatef( (float) this->x_abs + .5, (float) this->y_abs + .5, 0.0 );
+    glTranslatef( (float) this->x_abs + .5f, (float) this->y_abs + .5f, 0.0f );
 
-    glTranslatef( (float)this->w/2.0, (float)viewport_size/2.0 + 2.0 , 0.0  );
+    glTranslatef( (float)this->w/2.0f, (float)viewport_size/2.0f + 2.0f , 0.0f  );
 
     /***   Draw the interaction control's orthographic elements   ***/
     iaction_draw_active_area_ortho();
@@ -186,17 +186,17 @@ namespace glui {
 
     glViewport( this->x_abs + (this->w-viewport_size)/2 + offset,
                 win_h - this->y_abs - this->h + text_height,
-                viewport_size, viewport_size );
+		viewport_size, viewport_size );
 
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
-    double xy=1.00,zc=50.0; /* X-Y size, and Z origin */
+    float xy=1.00f,zc=50.0f; /* X-Y size, and Z origin */
     glFrustum( -1.0*xy, 1.0*xy, -xy, xy, zc*0.7, zc*1.3 );
     glMatrixMode( GL_MODELVIEW );
     glPushMatrix();
     glLoadIdentity();
-    glTranslatef( 0.0, 0.0, -zc );
-    glScalef(xy,xy,1.0); // xy);
+    glTranslatef( 0.0f, 0.0f, -zc );
+    glScalef(xy,xy,1.0f); // xy);
 
     /*	glutSolidTeapot( 1.0 );              */
     iaction_draw_active_area_persp();

@@ -365,12 +365,12 @@ namespace glui {
     glTranslatef(-(x+offset),-(y+offset),0);
 
     if (!enabled) { // once more!
-      glTranslatef(x,y,0);
+      glTranslatef(x,y,0.f);
       glColor3ubv(gray);
       glBegin(GL_TRIANGLES);
       glVertex2fv(tri); glVertex2fv(tri+2), glVertex2fv(tri+4);
       glEnd();
-      glTranslatef(-x,-y,0);
+      glTranslatef(-x,-y,0.f);
     }
   }
 

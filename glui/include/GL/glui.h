@@ -59,15 +59,15 @@
 #  define GLUI_DLL_IMPORT
 #endif
 
-//#if defined(GLUI_DLL_INTERFACE)
+#if defined(glui_DLL_INTERFACE)
 #  ifdef glui_EXPORTS
 #    define GLUI_INTERFACE GLUI_DLL_EXPORT
 #  else
 #    define GLUI_INTERFACE GLUI_DLL_IMPORT
 #  endif
-//#else
-//#  define GLUI_INTERFACE /*static lib*/
-//#endif
+#else
+#  define GLUI_INTERFACE /*static lib*/
+#endif
 
 #define GLUI_API GLUI_INTERFACE
 
@@ -522,8 +522,8 @@ namespace glui {
      This is the only GLUI_Master_Object in existence.
   */
   extern GLUI_API GLUI_Master_Object GLUI_Master;
-  class GLUI_Rotation;
-  class GLUI_Translation;
+  class GLUI_API GLUI_Rotation;
+  class GLUI_API GLUI_Translation;
 
 
 #ifdef _MSC_VER

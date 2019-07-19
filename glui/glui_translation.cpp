@@ -162,9 +162,9 @@ namespace glui {
     if ( trans_type == GLUI_TRANSLATION_XY ) {
 
       if ( locked == GLUI_TRANSLATION_LOCK_X )
-        y_off = 0.0;
+        y_off = 0.0f;
       else if ( locked == GLUI_TRANSLATION_LOCK_Y )
-        x_off = 0.0;
+        x_off = 0.0f;
 
       off_array[0] = x_off + orig_x;
       off_array[1] = y_off + orig_y;
@@ -198,8 +198,8 @@ namespace glui {
   {
     /********* Draw emboss circles around arcball control *********/
     float radius;
-    radius = (float)(h-22)/2.0;  /*  MIN((float)w/2.0, (float)h/2.0); */
-    glLineWidth( 1.0 );
+    radius = (float)(h-22)/2.0f;  /*  MIN((float)w/2.0f, (float)h/2.0f); */
+    glLineWidth( 1.0f );
 
     draw_emboss_box( (int) -radius-2, (int)radius+2,
                      (int)-radius-2, (int)radius+2 );
@@ -207,7 +207,7 @@ namespace glui {
     glMatrixMode( GL_MODELVIEW );
     glPushMatrix();
     glTranslatef( .5, .5, .5 );
-    /*  glScalef( radius-1.0, radius-1.0, radius-1.0 ); */
+    /*  glScalef( radius-1.0f, radius-1.0f, radius-1.0f ); */
     if ( trans_type == GLUI_TRANSLATION_Z )
       draw_2d_z_arrows((int)radius-1);
     else if ( trans_type == GLUI_TRANSLATION_XY )
@@ -343,15 +343,15 @@ namespace glui {
 
   void    GLUI_Translation::draw_2d_arrow( int radius, int filled, int orientation )
   {
-    float x1 = .2, x2 = .4, y1 = .54, y2 = .94, y0;
+    float x1 = .2f, x2 = .4f, y1 = .54f, y2 = .94f, y0;
     float x1a, x1b;
     /*
-      vec3  col1( 0.0, 0.0, 0.0 ), col2( .45, .45, .45 ),
-      col3( .7, .7, .7 ), col4( 1.0, 1.0, 1.0 );
+      vec3  col1( 0.0f, 0.0f, 0.0f ), col2( .45, .45, .45 ),
+      col3( .7, .7, .7 ), col4( 1.0f, 1.0f, 1.0f );
       vec3  c1, c2, c3, c4, c5, c6;
     */
-    vec3  white(1.0,1.0,1.0), black(0.0,0.0,0.0), gray(.45,.45,.45),
-      bkgd(.7,.7,.7);
+    vec3  white(1.0f,1.0f,1.0f), black(0.0f,0.0f,0.0f), gray(.45f,.45f,.45f),
+      bkgd(.7f,.7f,.7f);
     int   c_off=0; /* color index offset */
 
     if (context)
@@ -359,7 +359,7 @@ namespace glui {
                context->bkgd_color_f[1],
                context->bkgd_color_f[2]);
 
-    /*	bkgd[0] = 255.0; bkgd[1] = 0;              */
+    /*	bkgd[0] = 255.0f; bkgd[1] = 0;              */
 
     /** The following 8 colors define the shading of an octagon, in
         clockwise order, starting from the upstroke on the left  **/
@@ -370,9 +370,9 @@ namespace glui {
 #define SET_COL_OUT(i) glColor3fv((float*) &colors_out[(i)%8][0]);
 #define SET_COL_IN(i) glColor3fv((float*) &colors_in[(i)%8][0]);
 
-    x1 = (float)radius * .2;
+    x1 = (float)radius * .2f;
     x2 = x1 * 2;
-    y1 = (float)radius * .54;
+    y1 = (float)radius * .54f;
     y2 = y1 + x2;
     x1a = x1;
     x1b = x1;
@@ -382,7 +382,7 @@ namespace glui {
 
 #define DRAW_SEG( xa,ya,xb,yb ) glVertex2f(xa,ya); glVertex2f(xb,yb);
 
-    glScalef( -1.0, 1.0, 1.0 );
+    glScalef( -1.0f, 1.0f, 1.0f );
 
     if ( orientation == 2 ) {
       c_off = 4;
@@ -401,11 +401,11 @@ namespace glui {
     }
 
     if ( trans_type == GLUI_TRANSLATION_Z )
-      y0 = 0.0;
+      y0 = 0.0f;
     else if ( trans_type == GLUI_TRANSLATION_XY )
       y0 = x1;
     else
-      y0 = 0.0;
+      y0 = 0.0f;
 
 
     if ( trans_type == GLUI_TRANSLATION_Z ) {
@@ -448,30 +448,30 @@ namespace glui {
     }
 
     glBegin( GL_POLYGON );
-    glVertex2f( 0.0, 0.0  );  glVertex2f( -x1a, 0.0 );
-    glVertex2f( -x1a, 0.0   );  glVertex2f( -x1b, y1 );
-    glVertex2f( x1b, y1);      glVertex2f( x1a, 0.0 );
-    glVertex2f( x1a, 0.0 );     glVertex2f( 0.0, 0.0  );
+    glVertex2f( 0.0f, 0.0f  );  glVertex2f( -x1a, 0.0f );
+    glVertex2f( -x1a, 0.0f   );  glVertex2f( -x1b, y1 );
+    glVertex2f( x1b, y1);      glVertex2f( x1a, 0.0f );
+    glVertex2f( x1a, 0.0f );     glVertex2f( 0.0f, 0.0f  );
     glEnd();
     glBegin( GL_TRIANGLES );
-    glVertex2f( -x2, y1 ); glVertex2f( 0.0, y2 ); glVertex2f( x2, y1 );
+    glVertex2f( -x2, y1 ); glVertex2f( 0.0f, y2 ); glVertex2f( x2, y1 );
     glEnd();
 
-    glLineWidth( 1.0 );
+    glLineWidth( 1.0f );
     /*** Draw arrow outline ***/
     glBegin( GL_LINES );
 
-    SET_COL_IN(1+c_off);  DRAW_SEG( 0.0, y2-1.0, -x2, y1-1.0 );
-    SET_COL_IN(6+c_off);	DRAW_SEG( -x2+2.0, y1+1.0, -x1b+1.0, y1+1.0 );
-    SET_COL_IN(0+c_off);	DRAW_SEG( -x1b+1.0, y1+1.0, -x1a+1.0, y0 );
-    SET_COL_IN(3+c_off);	DRAW_SEG( 0.0, y2-1.0, x2, y1-1.0 );
-    SET_COL_IN(6+c_off);	DRAW_SEG( x2-1.0, y1+1.0, x1b-1.0, y1+1.0 );
-    SET_COL_IN(4+c_off);	DRAW_SEG( x1b-1.0, y1+1.0, x1a-1.0, y0 );
+    SET_COL_IN(1+c_off);  DRAW_SEG( 0.0f, y2-1.0f, -x2, y1-1.0f );
+    SET_COL_IN(6+c_off);	DRAW_SEG( -x2+2.0f, y1+1.0f, -x1b+1.0f, y1+1.0f );
+    SET_COL_IN(0+c_off);	DRAW_SEG( -x1b+1.0f, y1+1.0f, -x1a+1.0f, y0 );
+    SET_COL_IN(3+c_off);	DRAW_SEG( 0.0f, y2-1.0f, x2, y1-1.0f );
+    SET_COL_IN(6+c_off);	DRAW_SEG( x2-1.0f, y1+1.0f, x1b-1.0f, y1+1.0f );
+    SET_COL_IN(4+c_off);	DRAW_SEG( x1b-1.0f, y1+1.0f, x1a-1.0f, y0 );
 
     SET_COL_OUT(0+c_off);  DRAW_SEG( -x1a, y0, -x1b, y1  );
     SET_COL_OUT(6+c_off);  DRAW_SEG( -x1b, y1,  -x2, y1  );
-    SET_COL_OUT(1+c_off);  DRAW_SEG( -x2, y1,  0.0, y2  );
-    SET_COL_OUT(3+c_off);  DRAW_SEG( 0.0, y2,   x2, y1  );
+    SET_COL_OUT(1+c_off);  DRAW_SEG( -x2, y1,  0.0f, y2  );
+    SET_COL_OUT(3+c_off);  DRAW_SEG( 0.0f, y2,   x2, y1  );
     SET_COL_OUT(6+c_off);  DRAW_SEG(  x2, y1,   x1b, y1  );
     SET_COL_OUT(4+c_off);  DRAW_SEG(  x1b, y1,   x1a, y0 );
 

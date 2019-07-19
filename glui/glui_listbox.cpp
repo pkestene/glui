@@ -102,7 +102,7 @@ namespace glui {
                               0, h );
 
     if ( NOT active ) {
-      draw_box( text_x_offset+3, w-2, 2, h-2, 1.0, 1.0, 1.0 );
+      draw_box( text_x_offset+3, w-2, 2, h-2, 1.0f, 1.0f, 1.0f );
       if ( NOT enabled )
         glColor3b( 32, 32, 32 );
       else
@@ -111,7 +111,7 @@ namespace glui {
       draw_string( curr_text );
     }
     else {
-      draw_box( text_x_offset+3, w-2, 2, h-2, .0, .0, .6 );
+      draw_box( text_x_offset+3, w-2, 2, h-2, .0f, .0f, .6f );
       glColor3f( 1.0, 1.0, 1.0 );
       glRasterPos2i( text_x_offset+5, 13 );
       draw_string( curr_text );

@@ -219,7 +219,7 @@ namespace glui {
     glVertex2i( 1, 1 );     glVertex2i( w-1, 1 );
     glVertex2i( 1, 1 );     glVertex2i( 1, h-1 );
 
-    glColor3f( .75, .75, .75 );
+    glColor3f( .75f, .75f, .75f );
     glVertex2i( 1, h-1 );     glVertex2i( w-1, h-1 );
     glVertex2i( w-1, h-1 );   glVertex2i( w-1, 1 );
     glEnd();
@@ -233,7 +233,7 @@ namespace glui {
       glVertex2i( w-2, h-2 );               glVertex2i(2, h-2 );
       glEnd();
     } else {
-      glColor3f( .8, .8, .8 );
+      glColor3f( .8f, .8f, .8f );
       glDisable( GL_CULL_FACE );
       glBegin( GL_QUADS );
       glVertex2i( 2, 2 );     glVertex2i( w-2, 2 );
@@ -270,7 +270,7 @@ namespace glui {
     if (scrollbar) {
       scrollbar->set_int_limits(MAX(0,num_lines-visible_lines), 0);
       glPushMatrix();
-      glTranslatef(scrollbar->x_abs-x_abs, scrollbar->y_abs-y_abs,0.0);
+      glTranslatef((float)scrollbar->x_abs-x_abs, (float)scrollbar->y_abs-y_abs,0.0f);
       scrollbar->draw_scroll();
       glPopMatrix();
     }
