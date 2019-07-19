@@ -34,14 +34,18 @@ SET(GLUI_SRCS
  quaternion.cpp
  viewmodel.cpp
 )
-add_library(glui_obj OBJECT ${GLUI_SRCS})
+#add_library(glui_obj OBJECT ${GLUI_SRCS})
 # we need to enable -fPIC this so that the same object code can be used to
 # create static *and* shared libraries without double compilation
-set_property(TARGET glui_obj PROPERTY POSITION_INDEPENDENT_CODE 1)
+#set_property(TARGET glui_obj PROPERTY POSITION_INDEPENDENT_CODE 1)
 
-add_library(glui SHARED $<TARGET_OBJECTS:glui_obj>)
+include_directories("${GLUT_INCLUDE_DIR}")
+
+add_library(glui SHARED ${GLUI_SRCS})
 target_link_libraries(glui ${GLUT_LIBRARIES} ${OPENGL_LIBRARIES})
+set_property(TARGET glui PROPERTY POSITION_INDEPENDENT_CODE 1)
 
-add_library(glui_static STATIC $<TARGET_OBJECTS:glui_obj>)
+add_library(glui_static STATIC ${GLUI_SRCS})
 target_link_libraries(glui_static ${GLUT_LIBRARIES})
+set_property(TARGET glui_static PROPERTY POSITION_INDEPENDENT_CODE 1)
 

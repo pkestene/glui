@@ -37,28 +37,10 @@
 // that come from old GLUT headers.
 #include <cstdlib>
 
-#if defined(GLUI_FREEGLUT)
-
-// FreeGLUT does not yet work perfectly with GLUI_Context *
-//  - use at your own risk.
-  
-#include <GL/freeglut.h>
-
-#elif defined(GLUI_OPENGLUT)
-
-// OpenGLUT does not yet work properly with GLUI_Context *
-//  - use at your own risk.
-  
-#include <GL/openglut.h>
-
-#else 
-
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
-#endif
-
 #endif
 
 #include <cstdio>

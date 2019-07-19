@@ -2,10 +2,13 @@ cmake_minimum_required(VERSION 2.8)
 
 project(glui)
 
+#include(../gdt/cmake/configure_glut.cmake)
 find_package(GLUT REQUIRED)
 find_package(OpenGL REQUIRED)
 
-include_directories(${GLUT_INCLUDE_DIR}/include)
+message("glui: glut_include-Dir ${GLUT_INCLUDE_DIR}")
+include_directories(${GLUT_INCLUDE_DIR})
+#include_directories(${GLUT_INCLUDE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/glui/include)
 
 add_subdirectory(glui)
