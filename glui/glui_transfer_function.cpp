@@ -65,16 +65,17 @@ namespace glui {
     xf_alpha_count = live_array_count;
     if (live_array)
       xf_alpha = live_array;
-    else
+    else {
       xf_alpha = new float[live_array_count];
+      for (int i=0;i<live_array_count;i++)
+        xf_alpha[i] = i/float(live_array_count-1);
+    }
     
     user_id    = id;
     set_name( name );
     callback    = cb;
     parent->add_control( this );
 
-    for (int i=0;i<live_array_count;i++)
-      live_array[i] = i/float(live_array_count-1);
 
     init_live();
   }
