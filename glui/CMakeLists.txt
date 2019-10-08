@@ -1,33 +1,33 @@
 SET(GLUI_SRCS
  # header files, so visual studio will show those in the solution, too:
- include/GL/glui/Button.h
-include/GL/glui/CheckBox.h
-include/GL/glui/Column.h
-include/GL/glui/CommandLine.h
-include/GL/glui/Context.h
-include/GL/glui/Control.h
-include/GL/glui/EditText.h
-include/GL/glui/FileBrowser.h
-include/GL/glui/GlutWindow.h
-include/GL/glui/List.h
-include/GL/glui/ListBox.h
-include/GL/glui/Main.h
-include/GL/glui/MouseInteraction.h
-include/GL/glui/Panel.h
-include/GL/glui/RadioButton.h
-include/GL/glui/RadioGroup.h
-include/GL/glui/RollOut.h
-include/GL/glui/Rotation.h
-include/GL/glui/ScrollBar.h
-include/GL/glui/Separator.h
-include/GL/glui/Spinner.h
-include/GL/glui/StaticText.h
-include/GL/glui/TextBox.h
-include/GL/glui/TransferFunction.h
-include/GL/glui/Translation.h
-include/GL/glui/Tree.h
-include/GL/glui/TreePanel.h
-include/GL/glui.h
+ ../include/glui/Button.h
+../include/glui/CheckBox.h
+../include/glui/Column.h
+../include/glui/CommandLine.h
+../include/glui/Context.h
+../include/glui/Control.h
+../include/glui/EditText.h
+../include/glui/FileBrowser.h
+../include/glui/GlutWindow.h
+../include/glui/List.h
+../include/glui/ListBox.h
+../include/glui/Main.h
+../include/glui/MouseInteraction.h
+../include/glui/Panel.h
+../include/glui/RadioButton.h
+../include/glui/RadioGroup.h
+../include/glui/RollOut.h
+../include/glui/Rotation.h
+../include/glui/ScrollBar.h
+../include/glui/Separator.h
+../include/glui/Spinner.h
+../include/glui/StaticText.h
+../include/glui/TextBox.h
+../include/glui/TransferFunction.h
+../include/glui/Translation.h
+../include/glui/Tree.h
+../include/glui/TreePanel.h
+../include/glui/glui.h
 
 # source files, to build the lib from
  algebra3.cpp

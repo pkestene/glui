@@ -28,7 +28,7 @@
 
 *****************************************************************************/
 
-#include "GL/glui.h"
+#include "glui/glui.h"
 #include <stdarg.h>
 
 namespace glui {

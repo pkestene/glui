@@ -22,7 +22,7 @@ find_package(GLUT REQUIRED)
 find_package(OpenGL REQUIRED)
 
 include_directories(${GLUT_INCLUDE_DIR})
-include_directories(${CMAKE_SOURCE_DIR}/glui/include)
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
 add_subdirectory(glui)
 add_subdirectory(samples)
