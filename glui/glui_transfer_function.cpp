@@ -31,8 +31,8 @@
 
 *****************************************************************************/
 
-#include "GL/glui.h"
-#include "GL/glui/TransferFunction.h"
+#include "glui/glui.h"
+#include "glui/TransferFunction.h"
 #include "glui_internal.h"
 #include "algebra3.h"
 #include "glui_internal_control.h"

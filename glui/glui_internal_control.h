@@ -22,7 +22,7 @@
 #pragma once
 
 /* This is the main GLUI_Context *external header */
-#include "GL/glui.h"
+#include "glui//glui.h"
 
 /* Here's some utility routines */
 #include "glui_internal.h"
