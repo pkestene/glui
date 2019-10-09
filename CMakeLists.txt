@@ -14,7 +14,8 @@
 # limitations under the License.                                           #
 # ======================================================================== #
 
-project(glui)
+cmake_policy(SET CMP0048 NEW)
+project(glui VERSION 0.1.0)
 
 cmake_minimum_required(VERSION 2.8)
 
