@@ -38,6 +38,12 @@
 #include <cstdlib>
 
 #ifdef __APPLE__
+#include <AvailabilityMacros.h>
+// GLUT is deprecated as of OS X 10.9
+#if MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_9
+#pragma GCC diagnostic ignored "-Wdeprecated"
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
