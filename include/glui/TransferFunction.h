@@ -48,17 +48,17 @@ namespace glui {
     // int  iaction_special_handler( int key, int modifiers );
     // void iaction_init( void ) { }
 
-    int  iaction_mouse_down_handler( int local_x, int local_y );
-    int  iaction_mouse_up_handler( int local_x, int local_y, bool inside );
-    int  iaction_mouse_held_down_handler( int local_x, int local_y, bool inside );
-    int  iaction_special_handler( int key, int modifiers );
-    void iaction_init( void );// { init_ball(); }
+    int  iaction_mouse_down_handler( int local_x, int local_y ) override;
+    int  iaction_mouse_up_handler( int local_x, int local_y, bool inside ) override;
+    int  iaction_mouse_held_down_handler( int local_x, int local_y, bool inside ) override;
+    int  iaction_special_handler( int key, int modifiers ) override;
+    void iaction_init( void ) override;// { init_ball(); }
     // void iaction_draw_active_area_persp( void );
     // void iaction_draw_active_area_ortho( void );
-    void iaction_dump( FILE *output );
+    void iaction_dump( FILE *output ) override;
 
-    void iaction_draw_active_area_persp( void );
-    void iaction_draw_active_area_ortho( void );
+    void iaction_draw_active_area_persp( void ) override;
+    void iaction_draw_active_area_ortho( void ) override;
     // void iaction_dump( FILE *output );
 
     // void set_speed( float s ) { scale_factor = s; }
