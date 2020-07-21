@@ -11,8 +11,8 @@
 ****************************************************************************/
 
 #include <string.h>
-#include <GL/glui.h>
-#include <GL/glui/TransferFunction.h>
+#include <glui/glui.h>
+#include <glui/TransferFunction.h>
 
 using namespace glui;
 

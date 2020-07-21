@@ -11,7 +11,7 @@
 ****************************************************************************/
 
 #include <string.h>
-#include <GL/glui.h>
+#include <glui/glui.h>
 
 using namespace glui;
 
