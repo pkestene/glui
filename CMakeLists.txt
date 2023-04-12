@@ -14,10 +14,24 @@
 # limitations under the License.                                           #
 # ======================================================================== #
 
-cmake_policy(SET CMP0048 NEW)
+cmake_minimum_required(VERSION 3.10)
+
+if(POLICY CMP0048)
+  cmake_policy(SET CMP0048 NEW)
+endif(POLICY CMP0048)
+
 project(glui VERSION 0.1.0)
 
-cmake_minimum_required(VERSION 2.8)
+#
+# CMP0072 introduced in cmake 3.11
+#
+# Prefer using GLVND by default when available.
+#
+# run `cmake --help-policy CMP0072` to know more
+#
+if (POLICY CMP0072)
+  cmake_policy (SET CMP0072 NEW)
+endif(POLICY CMP0072)
 
 find_package(GLUT REQUIRED)
 find_package(OpenGL REQUIRED)
